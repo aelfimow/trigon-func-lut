@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <map>
 #include "sin_lut_fp32.h"
+#include "cos_lut_fp32.h"
 
 int main(int argc, char *argv[])
 try
