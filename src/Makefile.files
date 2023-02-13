@@ -1,2 +1,3 @@
-main.o: main.cpp sin_lut_fp32.h
+cos_lut_fp32.o: cos_lut_fp32.cpp cos_lut_fp32.h
+main.o: main.cpp sin_lut_fp32.h cos_lut_fp32.h
 sin_lut_fp32.o: sin_lut_fp32.cpp sin_lut_fp32.h
