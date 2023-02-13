@@ -1,0 +1,2 @@
+main.o: main.cpp
+sin_lut_fp32.o: sin_lut_fp32.cpp sin_lut_fp32.h
