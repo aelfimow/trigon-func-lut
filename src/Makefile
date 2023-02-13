@@ -5,6 +5,15 @@ CXXFLAGS += -pedantic
 CXXFLAGS += -Weffc++
 CXXFLAGS += -std=c++17
 
-all:
-	$(CXX) -c *.cpp $(CXXFLAGS)
-	$(CXX) *.o -o trigon.exe $(CXXFLAGS)
+FILES = $(wildcard *.cpp)
+FILES_OBJ = $(FILES:.cpp=.o)
+
+all: compile
+	$(CXX) $(FILES_OBJ) -o trigon.exe $(CXXFLAGS)
+
+compile: $(FILES_OBJ)
+
+deps:
+	$(CXX) -MM $(FILES) > Makefile.files
+
+include Makefile.files
