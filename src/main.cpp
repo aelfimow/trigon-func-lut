@@ -7,6 +7,7 @@
 #include "sin_lut_fp32.h"
 #include "cos_lut_fp32.h"
 #include "tan_lut_fp32.h"
+#include "cot_lut_fp32.h"
 
 using fp32 = float;
 static_assert(sizeof(fp32) == 4U);
@@ -117,6 +118,46 @@ namespace
             }
         }
     }
+
+    fp32 cotf(fp32 x)
+    {
+#if 1
+        return (cosf(x) / sinf(x));
+#endif
+#if 0
+        return (1.0f / tanf(x));
+#endif
+    }
+
+    void check_cot_lut_fp32()
+    {
+        std::vector<unsigned int> degrees(cot_lut_fp32::MAX_LUT_ELEM);
+        std::iota(degrees.begin(), degrees.end(), 0U);
+
+        std::vector<fp32> radian_fp32;
+        radian_fp32.reserve(degrees.size());
+
+        for (auto const degree: degrees)
+        {
+            fp32 const value_fp32 = ((2.0f * fp32data::pi * static_cast<fp32>(degree)) / 360.0f);
+
+            radian_fp32.push_back(value_fp32);
+        }
+
+        for (size_t i = 0U; i < degrees.size(); ++i)
+        {
+            fp32 const a = cotf(radian_fp32[i]);
+
+            fp32 const b = cot_lut_fp32::lut[degrees[i]]();
+
+            fp32 const diff = fabsf(a - b);
+
+            if (diff > fp32data::macheps)
+            {
+                std::cout << "cot_lut_fp32, " << degrees[i] << ": " << diff << std::endl;
+            }
+        }
+    }
 }
 
 int main(int, char **)
@@ -125,6 +166,7 @@ try
     check_sin_lut_fp32();
     check_cos_lut_fp32();
     check_tan_lut_fp32();
+    check_cot_lut_fp32();
 
     return EXIT_SUCCESS;
 }
