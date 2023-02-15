@@ -25,35 +25,43 @@ namespace fp32data
     fp32 const macheps = 5.96046E-08f;
 }
 
+namespace
+{
+    void check_sin_lut_fp32()
+    {
+        std::vector<unsigned int> degrees(361U);    // from 0 to 360
+        std::iota(degrees.begin(), degrees.end(), 0U);
+
+        std::vector<fp32> radian_fp32;
+        radian_fp32.reserve(degrees.size());
+
+        for (auto const degree: degrees)
+        {
+            fp32 const value_fp32 = ((2.0f * fp32data::pi * static_cast<fp32>(degree)) / 360.0f);
+
+            radian_fp32.push_back(value_fp32);
+        }
+
+        for (size_t i = 0U; i < degrees.size(); ++i)
+        {
+            fp32 const a = sinf(radian_fp32[i]);
+
+            fp32 const b = sin_lut_fp32::lut[degrees[i]]();
+
+            fp32 const diff = fabsf(a - b);
+
+            if (diff > fp32data::macheps)
+            {
+                std::cout << "sin_lut_fp32, " << degrees[i] << ": " << diff << std::endl;
+            }
+        }
+    }
+}
+
 int main(int, char **)
 try
 {
-    std::vector<unsigned int> degrees(361U);    // from 0 to 360
-    std::iota(degrees.begin(), degrees.end(), 0U);
-
-    std::vector<fp32> radian_fp32;
-    radian_fp32.reserve(degrees.size());
-
-    for (auto const degree: degrees)
-    {
-        fp32 const value_fp32 = ((2.0f * fp32data::pi * static_cast<fp32>(degree)) / 360.0f);
-
-        radian_fp32.push_back(value_fp32);
-    }
-
-    for (size_t i = 0U; i < degrees.size(); ++i)
-    {
-        fp32 const a = sinf(radian_fp32[i]);
-
-        fp32 const b = sin_lut_fp32::lut[degrees[i]]();
-
-        fp32 const diff = fabsf(a - b);
-
-        if (diff > fp32data::macheps)
-        {
-            std::cout << "sin_lut_fp32, " << degrees[i] << ": " << diff << std::endl;
-        }
-    }
+    check_sin_lut_fp32();
 
     return EXIT_SUCCESS;
 }
