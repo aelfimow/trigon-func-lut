@@ -2,6 +2,8 @@
 #error Already included
 #else
 
+#define SIN_LUT_FP32_H  1
+
 namespace sin_lut_fp32
 {
     using fp32 = float;
