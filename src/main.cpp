@@ -29,7 +29,7 @@ namespace
 {
     void check_sin_lut_fp32()
     {
-        std::vector<unsigned int> degrees(361U);    // from 0 to 360
+        std::vector<unsigned int> degrees(sin_lut_fp32::MAX_LUT_ELEM);
         std::iota(degrees.begin(), degrees.end(), 0U);
 
         std::vector<fp32> radian_fp32;
@@ -59,7 +59,7 @@ namespace
 
     void check_cos_lut_fp32()
     {
-        std::vector<unsigned int> degrees(361U);    // from 0 to 360
+        std::vector<unsigned int> degrees(cos_lut_fp32::MAX_LUT_ELEM);
         std::iota(degrees.begin(), degrees.end(), 0U);
 
         std::vector<fp32> radian_fp32;
