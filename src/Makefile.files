@@ -3,4 +3,5 @@ cot_lut_fp32.o: cot_lut_fp32.cpp cot_lut_fp32.h
 main.o: main.cpp sin_lut_fp32.h cos_lut_fp32.h tan_lut_fp32.h \
  cot_lut_fp32.h
 sin_lut_fp32.o: sin_lut_fp32.cpp sin_lut_fp32.h
+sin_lut_fp64.o: sin_lut_fp64.cpp sin_lut_fp64.h
 tan_lut_fp32.o: tan_lut_fp32.cpp tan_lut_fp32.h
