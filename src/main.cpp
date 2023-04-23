@@ -4,24 +4,13 @@
 #include <vector>
 #include <cmath>
 #include <numeric>
+#include "types.h"
 #include "sin_lut_fp32.h"
 #include "sin_lut_fp64.h"
 #include "cos_lut_fp32.h"
 #include "cos_lut_fp64.h"
 #include "tan_lut_fp32.h"
 #include "cot_lut_fp32.h"
-
-using fp32 = float;
-static_assert(sizeof(fp32) == 4U);
-
-using fp64 = double;
-static_assert(sizeof(fp64) == 8U);
-
-using fp80 = long double;
-static_assert(sizeof(fp80) >= 10U);
-
-using fp128 = __float128;
-static_assert(sizeof(fp128) == 16U);
 
 namespace fp32data
 {
@@ -32,7 +21,7 @@ namespace fp32data
 namespace fp64data
 {
     fp64 const pi = 3.1415926535897932384626433832795;
-    fp64 const macheps = 5.96046E-08;
+    fp64 const macheps = 1.11022e-16;
 }
 
 namespace
