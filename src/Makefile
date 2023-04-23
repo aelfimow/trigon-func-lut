@@ -9,7 +9,7 @@ FILES = $(wildcard *.cpp)
 FILES_OBJ = $(FILES:.cpp=.o)
 
 all: compile
-	$(CXX) $(FILES_OBJ) -o trigon.exe $(CXXFLAGS)
+	$(CXX) $(FILES_OBJ) -o lut.exe $(CXXFLAGS)
 
 compile: $(FILES_OBJ)
 
