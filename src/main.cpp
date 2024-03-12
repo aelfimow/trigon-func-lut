@@ -4,6 +4,7 @@
 #include <vector>
 #include <cmath>
 #include <numeric>
+#include <numbers>
 #include "types.h"
 #include "sin_lut_fp32.h"
 #include "sin_lut_fp64.h"
@@ -14,7 +15,6 @@
 
 namespace fp32data
 {
-    fp32 const pi = 3.1415926535897932384626433832795f;
     fp32 const macheps = 5.96046E-08f;
 }
 
@@ -36,7 +36,7 @@ namespace
 
         for (auto const degree: degrees)
         {
-            fp32 const value_fp32 = ((2.0f * fp32data::pi * static_cast<fp32>(degree)) / 360.0f);
+            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
 
             radian_fp32.push_back(value_fp32);
         }
@@ -96,7 +96,7 @@ namespace
 
         for (auto const degree: degrees)
         {
-            fp32 const value_fp32 = ((2.0f * fp32data::pi * static_cast<fp32>(degree)) / 360.0f);
+            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
 
             radian_fp32.push_back(value_fp32);
         }
@@ -156,7 +156,7 @@ namespace
 
         for (auto const degree: degrees)
         {
-            fp32 const value_fp32 = ((2.0f * fp32data::pi * static_cast<fp32>(degree)) / 360.0f);
+            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
 
             radian_fp32.push_back(value_fp32);
         }
@@ -196,7 +196,7 @@ namespace
 
         for (auto const degree: degrees)
         {
-            fp32 const value_fp32 = ((2.0f * fp32data::pi * static_cast<fp32>(degree)) / 360.0f);
+            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
 
             radian_fp32.push_back(value_fp32);
         }
