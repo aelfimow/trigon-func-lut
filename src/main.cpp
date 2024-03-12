@@ -17,7 +17,7 @@ namespace fp32data
 {
     fp32 const macheps = 5.96046E-08f;
 
-    void check_sin_lut_fp32()
+    void check_sin_lut()
     {
         std::vector<unsigned int> degrees(sin_lut_fp32::MAX_LUT_ELEM);
         std::iota(degrees.begin(), degrees.end(), 0U);
@@ -220,7 +220,7 @@ namespace
 int main(int, char **)
 try
 {
-    fp32data::check_sin_lut_fp32();
+    fp32data::check_sin_lut();
     check_sin_lut_fp64();
 
     check_cos_lut_fp32();
