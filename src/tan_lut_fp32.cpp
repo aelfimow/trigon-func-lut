@@ -1,15 +1,14 @@
 #include "tan_lut_fp32.h"
 #include <cmath>
+#include <numbers>
 
 namespace tan_lut_fp32
 {
     fp32 to_rad(unsigned int value)
     {
-        fp32 const pi = 3.1415926535897932384626433832795f;
-
         fp32 const grad = static_cast<fp32>(value);
 
-        return ((2.0f * pi * grad) / 360.0f);
+        return ((2.0f * std::numbers::pi_v<fp32> * grad) / 360.0f);
     }
 
     lut_func_t const lut[MAX_LUT_ELEM]
