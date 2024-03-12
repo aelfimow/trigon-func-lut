@@ -1,15 +1,14 @@
 #include "tan_lut_fp64.h"
 #include <cmath>
+#include <numbers>
 
 namespace tan_lut_fp64
 {
     fp64 to_rad(unsigned int value)
     {
-        fp64 const pi = 3.1415926535897932384626433832795;
-
         fp64 const grad = static_cast<fp64>(value);
 
-        return ((2.0 * pi * grad) / 360.0);
+        return ((2.0 * std::numbers::pi_v<fp64> * grad) / 360.0);
     }
 
     lut_func_t const lut[MAX_LUT_ELEM]
