@@ -20,7 +20,6 @@ namespace fp32data
 
 namespace fp64data
 {
-    fp64 const pi = 3.1415926535897932384626433832795;
     fp64 const macheps = 1.11022e-16;
 }
 
@@ -66,7 +65,7 @@ namespace
 
         for (auto const degree: degrees)
         {
-            fp64 const value_fp64 = ((2.0 * fp64data::pi * static_cast<fp64>(degree)) / 360.0);
+            fp64 const value_fp64 = ((2.0 * std::numbers::pi_v<fp64> * static_cast<fp64>(degree)) / 360.0);
 
             radian_fp64.push_back(value_fp64);
         }
@@ -126,7 +125,7 @@ namespace
 
         for (auto const degree: degrees)
         {
-            fp64 const value_fp64 = ((2.0 * fp64data::pi * static_cast<fp64>(degree)) / 360.0);
+            fp64 const value_fp64 = ((2.0 * std::numbers::pi_v<fp64> * static_cast<fp64>(degree)) / 360.0);
 
             radian_fp64.push_back(value_fp64);
         }
