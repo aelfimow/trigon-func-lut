@@ -46,6 +46,36 @@ namespace fp32data
             }
         }
     }
+
+    void check_cos_lut_fp32()
+    {
+        std::vector<unsigned int> degrees(cos_lut_fp32::MAX_LUT_ELEM);
+        std::iota(degrees.begin(), degrees.end(), 0U);
+
+        std::vector<fp32> radian_fp32;
+        radian_fp32.reserve(degrees.size());
+
+        for (auto const degree: degrees)
+        {
+            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
+
+            radian_fp32.push_back(value_fp32);
+        }
+
+        for (size_t i = 0U; i < degrees.size(); ++i)
+        {
+            fp32 const a = cosf(radian_fp32[i]);
+
+            fp32 const b = cos_lut_fp32::lut[degrees[i]]();
+
+            fp32 const diff = fabsf(a - b);
+
+            if (diff > fp32data::macheps)
+            {
+                std::cout << "cos_lut_fp32, " << degrees[i] << ": " << diff << std::endl;
+            }
+        }
+    }
 }
 
 namespace fp64data
@@ -86,35 +116,6 @@ namespace
         }
     }
 
-    void check_cos_lut_fp32()
-    {
-        std::vector<unsigned int> degrees(cos_lut_fp32::MAX_LUT_ELEM);
-        std::iota(degrees.begin(), degrees.end(), 0U);
-
-        std::vector<fp32> radian_fp32;
-        radian_fp32.reserve(degrees.size());
-
-        for (auto const degree: degrees)
-        {
-            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
-
-            radian_fp32.push_back(value_fp32);
-        }
-
-        for (size_t i = 0U; i < degrees.size(); ++i)
-        {
-            fp32 const a = cosf(radian_fp32[i]);
-
-            fp32 const b = cos_lut_fp32::lut[degrees[i]]();
-
-            fp32 const diff = fabsf(a - b);
-
-            if (diff > fp32data::macheps)
-            {
-                std::cout << "cos_lut_fp32, " << degrees[i] << ": " << diff << std::endl;
-            }
-        }
-    }
 
     void check_cos_lut_fp64()
     {
@@ -223,7 +224,7 @@ try
     fp32data::check_sin_lut();
     check_sin_lut_fp64();
 
-    check_cos_lut_fp32();
+    fp32data::check_cos_lut_fp32();
     check_cos_lut_fp64();
 
     check_tan_lut_fp32();
