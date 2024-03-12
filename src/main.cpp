@@ -152,7 +152,7 @@ namespace fp64data
 {
     fp64 const macheps = 1.11022e-16;
 
-    void check_sin_lut_fp64()
+    void check_sin_lut()
     {
         std::vector<unsigned int> degrees(sin_lut_fp64::MAX_LUT_ELEM);
         std::iota(degrees.begin(), degrees.end(), 0U);
@@ -182,7 +182,7 @@ namespace fp64data
         }
     }
 
-    void check_cos_lut_fp64()
+    void check_cos_lut()
     {
         std::vector<unsigned int> degrees(cos_lut_fp64::MAX_LUT_ELEM);
         std::iota(degrees.begin(), degrees.end(), 0U);
@@ -221,8 +221,8 @@ try
     fp32data::check_tan_lut();
     fp32data::check_cot_lut();
 
-    fp64data::check_sin_lut_fp64();
-    fp64data::check_cos_lut_fp64();
+    fp64data::check_sin_lut();
+    fp64data::check_cos_lut();
 
     return EXIT_SUCCESS;
 }
