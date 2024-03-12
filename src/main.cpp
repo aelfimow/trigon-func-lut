@@ -77,7 +77,7 @@ namespace fp32data
         }
     }
 
-    void check_tan_lut_fp32()
+    void check_tan_lut()
     {
         std::vector<unsigned int> degrees(tan_lut_fp32::MAX_LUT_ELEM);
         std::iota(degrees.begin(), degrees.end(), 0U);
@@ -227,7 +227,7 @@ try
     fp32data::check_cos_lut();
     check_cos_lut_fp64();
 
-    fp32data::check_tan_lut_fp32();
+    fp32data::check_tan_lut();
     check_cot_lut_fp32();
 
     return EXIT_SUCCESS;
