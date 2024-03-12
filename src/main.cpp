@@ -151,10 +151,7 @@ namespace fp32data
 namespace fp64data
 {
     fp64 const macheps = 1.11022e-16;
-}
 
-namespace
-{
     void check_sin_lut_fp64()
     {
         std::vector<unsigned int> degrees(sin_lut_fp64::MAX_LUT_ELEM);
@@ -224,8 +221,8 @@ try
     fp32data::check_tan_lut();
     fp32data::check_cot_lut();
 
-    check_sin_lut_fp64();
-    check_cos_lut_fp64();
+    fp64data::check_sin_lut_fp64();
+    fp64data::check_cos_lut_fp64();
 
     return EXIT_SUCCESS;
 }
