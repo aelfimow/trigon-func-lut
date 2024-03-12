@@ -106,6 +106,46 @@ namespace fp32data
             }
         }
     }
+
+    fp32 cotf(fp32 x)
+    {
+#if 1
+        return (cosf(x) / sinf(x));
+#endif
+#if 0
+        return (1.0f / tanf(x));
+#endif
+    }
+
+    void check_cot_lut_fp32()
+    {
+        std::vector<unsigned int> degrees(cot_lut_fp32::MAX_LUT_ELEM);
+        std::iota(degrees.begin(), degrees.end(), 0U);
+
+        std::vector<fp32> radian_fp32;
+        radian_fp32.reserve(degrees.size());
+
+        for (auto const degree: degrees)
+        {
+            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
+
+            radian_fp32.push_back(value_fp32);
+        }
+
+        for (size_t i = 0U; i < degrees.size(); ++i)
+        {
+            fp32 const a = cotf(radian_fp32[i]);
+
+            fp32 const b = cot_lut_fp32::lut[degrees[i]]();
+
+            fp32 const diff = fabsf(a - b);
+
+            if (diff > fp32data::macheps)
+            {
+                std::cout << "cot_lut_fp32, " << degrees[i] << ": " << diff << std::endl;
+            }
+        }
+    }
 }
 
 namespace fp64data
@@ -176,46 +216,6 @@ namespace
             }
         }
     }
-
-    fp32 cotf(fp32 x)
-    {
-#if 1
-        return (cosf(x) / sinf(x));
-#endif
-#if 0
-        return (1.0f / tanf(x));
-#endif
-    }
-
-    void check_cot_lut_fp32()
-    {
-        std::vector<unsigned int> degrees(cot_lut_fp32::MAX_LUT_ELEM);
-        std::iota(degrees.begin(), degrees.end(), 0U);
-
-        std::vector<fp32> radian_fp32;
-        radian_fp32.reserve(degrees.size());
-
-        for (auto const degree: degrees)
-        {
-            fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
-
-            radian_fp32.push_back(value_fp32);
-        }
-
-        for (size_t i = 0U; i < degrees.size(); ++i)
-        {
-            fp32 const a = cotf(radian_fp32[i]);
-
-            fp32 const b = cot_lut_fp32::lut[degrees[i]]();
-
-            fp32 const diff = fabsf(a - b);
-
-            if (diff > fp32data::macheps)
-            {
-                std::cout << "cot_lut_fp32, " << degrees[i] << ": " << diff << std::endl;
-            }
-        }
-    }
 }
 
 int main(int, char **)
@@ -228,7 +228,7 @@ try
     check_cos_lut_fp64();
 
     fp32data::check_tan_lut();
-    check_cot_lut_fp32();
+    fp32data::check_cot_lut_fp32();
 
     return EXIT_SUCCESS;
 }
