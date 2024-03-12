@@ -155,7 +155,6 @@ namespace fp64data
 
 namespace
 {
-
     void check_sin_lut_fp64()
     {
         std::vector<unsigned int> degrees(sin_lut_fp64::MAX_LUT_ELEM);
@@ -185,7 +184,6 @@ namespace
             }
         }
     }
-
 
     void check_cos_lut_fp64()
     {
@@ -222,13 +220,12 @@ int main(int, char **)
 try
 {
     fp32data::check_sin_lut();
-    check_sin_lut_fp64();
-
     fp32data::check_cos_lut();
-    check_cos_lut_fp64();
-
     fp32data::check_tan_lut();
     fp32data::check_cot_lut();
+
+    check_sin_lut_fp64();
+    check_cos_lut_fp64();
 
     return EXIT_SUCCESS;
 }
