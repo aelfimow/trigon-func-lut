@@ -6,7 +6,6 @@
 
 namespace sin_lut_fp64
 {
-    using fp64 = double;
     using lut_func_t = fp64 (*)();
 
     constexpr unsigned int MAX_LUT_ELEM = 361U;
