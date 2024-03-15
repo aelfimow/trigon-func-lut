@@ -1,0 +1,16 @@
+#ifdef COT_LUT_FP64_H
+#error Already included
+#else
+
+#define COT_LUT_FP64_H  1
+
+namespace cot_lut_fp64
+{
+    using lut_func_t = fp64 (*)();
+
+    constexpr unsigned int MAX_LUT_ELEM = 361U;
+
+    extern lut_func_t const lut[MAX_LUT_ELEM];
+}
+
+#endif
