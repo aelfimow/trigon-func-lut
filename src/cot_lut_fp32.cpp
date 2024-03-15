@@ -1,3 +1,4 @@
+#include "types.h"
 #include "cot_lut_fp32.h"
 #include <cmath>
 #include <numbers>
