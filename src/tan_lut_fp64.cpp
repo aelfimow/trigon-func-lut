@@ -1,3 +1,4 @@
+#include "types.h"
 #include "tan_lut_fp64.h"
 #include <cmath>
 #include <numbers>
