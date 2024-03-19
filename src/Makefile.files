@@ -1,10 +1,11 @@
+check_fp32.o: check_fp32.cpp check_fp32.h types.h sin_lut_fp32.h \
+ cos_lut_fp32.h tan_lut_fp32.h cot_lut_fp32.h
 cos_lut_fp32.o: cos_lut_fp32.cpp types.h cos_lut_fp32.h
 cos_lut_fp64.o: cos_lut_fp64.cpp types.h cos_lut_fp64.h
 cot_lut_fp32.o: cot_lut_fp32.cpp types.h cot_lut_fp32.h
 cot_lut_fp64.o: cot_lut_fp64.cpp types.h cot_lut_fp64.h
-main.o: main.cpp types.h sin_lut_fp32.h cos_lut_fp32.h tan_lut_fp32.h \
- cot_lut_fp32.h sin_lut_fp64.h cos_lut_fp64.h tan_lut_fp64.h \
- cot_lut_fp64.h
+main.o: main.cpp types.h sin_lut_fp64.h cos_lut_fp64.h tan_lut_fp64.h \
+ cot_lut_fp64.h check_fp32.h
 sin_lut_fp32.o: sin_lut_fp32.cpp types.h sin_lut_fp32.h
 sin_lut_fp64.o: sin_lut_fp64.cpp types.h sin_lut_fp64.h
 tan_lut_fp32.o: tan_lut_fp32.cpp types.h tan_lut_fp32.h
