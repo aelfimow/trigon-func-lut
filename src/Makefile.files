@@ -2,9 +2,11 @@ check_fp32.o: check_fp32.cpp check_fp32.h types.h sin_lut_fp32.h \
  cos_lut_fp32.h tan_lut_fp32.h cot_lut_fp32.h
 check_fp64.o: check_fp64.cpp check_fp64.h types.h sin_lut_fp64.h \
  cos_lut_fp64.h tan_lut_fp64.h cot_lut_fp64.h
-check_fp80.o: check_fp80.cpp check_fp80.h types.h sin_lut_fp80.h
+check_fp80.o: check_fp80.cpp check_fp80.h types.h sin_lut_fp80.h \
+ cos_lut_fp80.h
 cos_lut_fp32.o: cos_lut_fp32.cpp types.h cos_lut_fp32.h degree_to_rad.h
 cos_lut_fp64.o: cos_lut_fp64.cpp types.h cos_lut_fp64.h degree_to_rad.h
+cos_lut_fp80.o: cos_lut_fp80.cpp types.h cos_lut_fp80.h degree_to_rad.h
 cot_lut_fp32.o: cot_lut_fp32.cpp types.h cot_lut_fp32.h degree_to_rad.h
 cot_lut_fp64.o: cot_lut_fp64.cpp types.h cot_lut_fp64.h degree_to_rad.h
 degree_to_rad.o: degree_to_rad.cpp types.h degree_to_rad.h
