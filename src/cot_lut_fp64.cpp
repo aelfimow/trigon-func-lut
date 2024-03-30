@@ -1,16 +1,12 @@
 #include "types.h"
 #include "cot_lut_fp64.h"
+#include "degree_to_rad.h"
 #include <cmath>
 #include <numbers>
 
 namespace cot_lut_fp64
 {
-    fp64 to_rad(unsigned int value)
-    {
-        fp64 const grad = static_cast<fp64>(value);
-
-        return ((2.0 * std::numbers::pi_v<fp64> * grad) / 360.0);
-    }
+    using namespace degree_to_rad;
 
     fp64 cot(fp64 x)
     {
