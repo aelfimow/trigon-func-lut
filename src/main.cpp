@@ -22,6 +22,7 @@ try
     check_fp80::check_sin();
     check_fp80::check_cos();
     check_fp80::check_tan();
+    check_fp80::check_cot();
 
     return EXIT_SUCCESS;
 }
