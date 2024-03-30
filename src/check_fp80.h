@@ -8,6 +8,7 @@ namespace check_fp80
 {
     extern void check_sin();
     extern void check_cos();
+    extern void check_tan();
 }
 
 #endif
