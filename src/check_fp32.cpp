@@ -5,6 +5,7 @@
 #include "cos_lut_fp32.h"
 #include "tan_lut_fp32.h"
 #include "cot_lut_fp32.h"
+#include "degree_to_rad.h"
 
 #include <iostream>
 #include <vector>
@@ -27,7 +28,7 @@ void check_fp32::check_sin()
 
     for (auto const degree: degrees)
     {
-        fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
+        fp32 const value_fp32 = degree_to_rad::to_rad_f(degree);
 
         radian_fp32.push_back(value_fp32);
     }
@@ -57,7 +58,7 @@ void check_fp32::check_cos()
 
     for (auto const degree: degrees)
     {
-        fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
+        fp32 const value_fp32 = degree_to_rad::to_rad_f(degree);
 
         radian_fp32.push_back(value_fp32);
     }
@@ -87,7 +88,7 @@ void check_fp32::check_tan()
 
     for (auto const degree: degrees)
     {
-        fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
+        fp32 const value_fp32 = degree_to_rad::to_rad_f(degree);
 
         radian_fp32.push_back(value_fp32);
     }
@@ -117,7 +118,7 @@ void check_fp32::check_cot()
 
     for (auto const degree: degrees)
     {
-        fp32 const value_fp32 = ((2.0f * std::numbers::pi_v<fp32> * static_cast<fp32>(degree)) / 360.0f);
+        fp32 const value_fp32 = degree_to_rad::to_rad_f(degree);
 
         radian_fp32.push_back(value_fp32);
     }
