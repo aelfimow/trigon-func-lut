@@ -5,6 +5,7 @@
 #include "cos_lut_fp64.h"
 #include "tan_lut_fp64.h"
 #include "cot_lut_fp64.h"
+#include "degree_to_rad.h"
 
 #include <iostream>
 #include <vector>
@@ -27,7 +28,7 @@ void check_fp64::check_sin()
 
     for (auto const degree: degrees)
     {
-        fp64 const value_fp64 = ((2.0 * std::numbers::pi_v<fp64> * static_cast<fp64>(degree)) / 360.0);
+        fp64 const value_fp64 = degree_to_rad::to_rad(degree);
 
         radian_fp64.push_back(value_fp64);
     }
@@ -57,7 +58,7 @@ void check_fp64::check_cos()
 
     for (auto const degree: degrees)
     {
-        fp64 const value_fp64 = ((2.0 * std::numbers::pi_v<fp64> * static_cast<fp64>(degree)) / 360.0);
+        fp64 const value_fp64 = degree_to_rad::to_rad(degree);
 
         radian_fp64.push_back(value_fp64);
     }
@@ -87,7 +88,7 @@ void check_fp64::check_tan()
 
     for (auto const degree: degrees)
     {
-        fp64 const tmp_value = ((2.0 * std::numbers::pi_v<fp64> * static_cast<fp64>(degree)) / 360.0);
+        fp64 const tmp_value = degree_to_rad::to_rad(degree);
 
         radian.push_back(tmp_value);
     }
@@ -117,7 +118,7 @@ void check_fp64::check_cot()
 
     for (auto const degree: degrees)
     {
-        fp64 const tmp_value = ((2.0 * std::numbers::pi_v<fp64> * static_cast<fp64>(degree)) / 360.0);
+        fp64 const tmp_value = degree_to_rad::to_rad(degree);
 
         radian.push_back(tmp_value);
     }
