@@ -22,5 +22,5 @@ fp80 degree_to_rad::to_rad_l(unsigned int value)
 {
     fp80 const grad = static_cast<fp80>(value);
 
-    return ((2.0f * std::numbers::pi_v<fp80> * grad) / 360.0f);
+    return ((2.0l * std::numbers::pi_v<fp80> * grad) / 360.0l);
 }
