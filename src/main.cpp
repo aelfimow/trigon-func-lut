@@ -20,6 +20,7 @@ try
     check_fp64::check_cot();
 
     check_fp80::check_sin();
+    check_fp80::check_cos();
 
     return EXIT_SUCCESS;
 }
