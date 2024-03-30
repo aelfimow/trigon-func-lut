@@ -11,6 +11,6 @@ degree_to_rad.o: degree_to_rad.cpp types.h degree_to_rad.h
 main.o: main.cpp check_fp32.h check_fp64.h check_fp80.h
 sin_lut_fp32.o: sin_lut_fp32.cpp types.h sin_lut_fp32.h degree_to_rad.h
 sin_lut_fp64.o: sin_lut_fp64.cpp types.h sin_lut_fp64.h degree_to_rad.h
-sin_lut_fp80.o: sin_lut_fp80.cpp types.h sin_lut_fp80.h
+sin_lut_fp80.o: sin_lut_fp80.cpp types.h sin_lut_fp80.h degree_to_rad.h
 tan_lut_fp32.o: tan_lut_fp32.cpp types.h tan_lut_fp32.h
 tan_lut_fp64.o: tan_lut_fp64.cpp types.h tan_lut_fp64.h
