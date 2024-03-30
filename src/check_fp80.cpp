@@ -4,6 +4,7 @@
 #include "sin_lut_fp80.h"
 #include "cos_lut_fp80.h"
 #include "tan_lut_fp80.h"
+#include "degree_to_rad.h"
 
 #include <iostream>
 #include <vector>
@@ -26,7 +27,7 @@ void check_fp80::check_sin()
 
     for (auto const degree: degrees)
     {
-        fp80 const value_fp80 = ((2.0f * std::numbers::pi_v<fp80> * static_cast<fp80>(degree)) / 360.0f);
+        fp80 const value_fp80 = degree_to_rad::to_rad_l(degree);
 
         radian_fp80.push_back(value_fp80);
     }
@@ -56,7 +57,7 @@ void check_fp80::check_cos()
 
     for (auto const degree: degrees)
     {
-        fp80 const value_fp80 = ((2.0 * std::numbers::pi_v<fp80> * static_cast<fp80>(degree)) / 360.0);
+        fp80 const value_fp80 = degree_to_rad::to_rad_l(degree);
 
         radian_fp80.push_back(value_fp80);
     }
@@ -86,7 +87,7 @@ void check_fp80::check_tan()
 
     for (auto const degree: degrees)
     {
-        fp80 const tmp_value = ((2.0 * std::numbers::pi_v<fp80> * static_cast<fp80>(degree)) / 360.0);
+        fp80 const tmp_value = degree_to_rad::to_rad_l(degree);
 
         radian.push_back(tmp_value);
     }
