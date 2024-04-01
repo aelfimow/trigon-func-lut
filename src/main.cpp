@@ -26,6 +26,7 @@ try
     check_fp80::check_cot();
 
     check_fp128::check_sin();
+    check_fp128::check_cos();
 
     return EXIT_SUCCESS;
 }
