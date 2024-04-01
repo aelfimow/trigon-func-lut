@@ -11,6 +11,8 @@ cos_lut_fp128.o: cos_lut_fp128.cpp types.h cos_lut_fp128.h \
 cos_lut_fp32.o: cos_lut_fp32.cpp types.h cos_lut_fp32.h degree_to_rad.h
 cos_lut_fp64.o: cos_lut_fp64.cpp types.h cos_lut_fp64.h degree_to_rad.h
 cos_lut_fp80.o: cos_lut_fp80.cpp types.h cos_lut_fp80.h degree_to_rad.h
+cot_lut_fp128.o: cot_lut_fp128.cpp types.h cot_lut_fp128.h \
+ degree_to_rad.h
 cot_lut_fp32.o: cot_lut_fp32.cpp types.h cot_lut_fp32.h degree_to_rad.h
 cot_lut_fp64.o: cot_lut_fp64.cpp types.h cot_lut_fp64.h degree_to_rad.h
 cot_lut_fp80.o: cot_lut_fp80.cpp types.h cot_lut_fp80.h degree_to_rad.h
