@@ -2,6 +2,7 @@
 #include "degree_to_rad.h"
 
 #include <numbers>
+#include <quadmath.h>
 
 
 fp32 degree_to_rad::to_rad_f(unsigned int value)
@@ -23,4 +24,11 @@ fp80 degree_to_rad::to_rad_l(unsigned int value)
     fp80 const grad = static_cast<fp80>(value);
 
     return ((2.0l * std::numbers::pi_v<fp80> * grad) / 360.0l);
+}
+
+fp128 degree_to_rad::to_rad_q(unsigned int value)
+{
+    fp128 const grad = static_cast<fp128>(value);
+
+    return ((2.0Q * M_PIq * grad) / 360.0Q);
 }
