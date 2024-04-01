@@ -2,6 +2,7 @@
 
 #include "types.h"
 #include "sin_lut_fp128.h"
+#include "cos_lut_fp128.h"
 #include "degree_to_rad.h"
 
 #include <iostream>
@@ -52,6 +53,36 @@ void check_fp128::check_sin()
         if (diff > FLT128_EPSILON)
         {
             std::cout << "sin_lut_fp128, " << degrees[i] << ": " << diff << std::endl;
+        }
+    }
+}
+
+void check_fp128::check_cos()
+{
+    std::vector<unsigned int> degrees(cos_lut_fp128::MAX_LUT_ELEM);
+    std::iota(degrees.begin(), degrees.end(), 0U);
+
+    std::vector<fp128> radians;
+    radians.reserve(degrees.size());
+
+    for (auto const degree: degrees)
+    {
+        fp128 const rad = degree_to_rad::to_rad_q(degree);
+
+        radians.push_back(rad);
+    }
+
+    for (size_t i = 0U; i < degrees.size(); ++i)
+    {
+        fp128 const a = ::cosq(radians[i]);
+
+        fp128 const b = cos_lut_fp128::lut[degrees[i]]();
+
+        fp128 const diff = ::fabsq(a - b);
+
+        if (diff > FLT128_EPSILON)
+        {
+            std::cout << "cos_lut_fp128, " << degrees[i] << ": " << diff << std::endl;
         }
     }
 }
