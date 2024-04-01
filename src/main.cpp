@@ -28,6 +28,7 @@ try
     check_fp128::check_sin();
     check_fp128::check_cos();
     check_fp128::check_tan();
+    check_fp128::check_cot();
 
     return EXIT_SUCCESS;
 }
