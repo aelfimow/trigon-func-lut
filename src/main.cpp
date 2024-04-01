@@ -4,6 +4,7 @@
 #include "check_fp32.h"
 #include "check_fp64.h"
 #include "check_fp80.h"
+#include "check_fp128.h"
 
 
 int main(int, char **)
@@ -23,6 +24,8 @@ try
     check_fp80::check_cos();
     check_fp80::check_tan();
     check_fp80::check_cot();
+
+    check_fp128::check_sin();
 
     return EXIT_SUCCESS;
 }
