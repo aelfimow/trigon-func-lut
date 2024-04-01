@@ -118,7 +118,7 @@ void check_fp80::check_cot()
 
     for (auto const degree: degrees)
     {
-        fp80 const tmp_value = degree_to_rad::to_rad(degree);
+        fp80 const tmp_value = degree_to_rad::to_rad_l(degree);
 
         radian.push_back(tmp_value);
     }
