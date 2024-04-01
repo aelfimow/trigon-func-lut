@@ -14,11 +14,13 @@ CXXFLAGS += -Wfloat-conversion
 CXXFLAGS += -Wfloat-equal
 CXXFLAGS += -fext-numeric-literals
 
+LDFLAGS = -lquadmath
+
 FILES = $(wildcard *.cpp)
 FILES_OBJ = $(FILES:.cpp=.o)
 
 all: compile
-	$(CXX) $(FILES_OBJ) -o lut.exe $(CXXFLAGS)
+	$(CXX) $(FILES_OBJ) -o lut.exe $(CXXFLAGS) $(LDFLAGS)
 
 compile: $(FILES_OBJ)
 
