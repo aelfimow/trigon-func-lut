@@ -7,6 +7,7 @@
 namespace check_fp128
 {
     extern void check_sin();
+    extern void check_cos();
 }
 
 #endif
