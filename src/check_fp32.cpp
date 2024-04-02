@@ -83,19 +83,19 @@ void check_fp32::check_tan()
     std::vector<unsigned int> degrees(tan_lut_fp32::MAX_LUT_ELEM);
     std::iota(degrees.begin(), degrees.end(), 0U);
 
-    std::vector<fp32> radian_fp32;
-    radian_fp32.reserve(degrees.size());
+    std::vector<fp32> radians;
+    radians.reserve(degrees.size());
 
     for (auto const degree: degrees)
     {
         fp32 const rad = degree_to_rad::to_rad_f(degree);
 
-        radian_fp32.push_back(rad);
+        radians.push_back(rad);
     }
 
     for (size_t i = 0U; i < degrees.size(); ++i)
     {
-        fp32 const a = tanf(radian_fp32[i]);
+        fp32 const a = tanf(radians[i]);
 
         fp32 const b = tan_lut_fp32::lut[degrees[i]]();
 
