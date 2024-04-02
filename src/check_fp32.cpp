@@ -28,9 +28,9 @@ void check_fp32::check_sin()
 
     for (auto const degree: degrees)
     {
-        fp32 const value_fp32 = degree_to_rad::to_rad_f(degree);
+        fp32 const rad = degree_to_rad::to_rad_f(degree);
 
-        radians.push_back(value_fp32);
+        radians.push_back(rad);
     }
 
     for (size_t i = 0U; i < degrees.size(); ++i)
