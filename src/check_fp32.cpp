@@ -118,9 +118,9 @@ void check_fp32::check_cot()
 
     for (auto const degree: degrees)
     {
-        fp32 const value_fp32 = degree_to_rad::to_rad_f(degree);
+        fp32 const rad = degree_to_rad::to_rad_f(degree);
 
-        radian_fp32.push_back(value_fp32);
+        radian_fp32.push_back(rad);
     }
 
     auto cotf = [](fp32 x) -> fp32
