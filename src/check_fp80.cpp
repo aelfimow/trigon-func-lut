@@ -88,9 +88,9 @@ void check_fp80::check_tan()
 
     for (auto const degree: degrees)
     {
-        fp80 const tmp_value = degree_to_rad::to_rad_l(degree);
+        fp80 const rad = degree_to_rad::to_rad_l(degree);
 
-        radians.push_back(tmp_value);
+        radians.push_back(rad);
     }
 
     for (size_t i = 0U; i < degrees.size(); ++i)
