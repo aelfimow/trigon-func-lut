@@ -118,9 +118,9 @@ void check_fp64::check_cot()
 
     for (auto const degree: degrees)
     {
-        fp64 const tmp_value = degree_to_rad::to_rad(degree);
+        fp64 const rad = degree_to_rad::to_rad(degree);
 
-        radians.push_back(tmp_value);
+        radians.push_back(rad);
     }
 
     auto cot = [](fp64 x) -> fp64
