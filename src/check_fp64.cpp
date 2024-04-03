@@ -113,14 +113,14 @@ void check_fp64::check_cot()
     std::vector<unsigned int> degrees(cot_lut_fp64::MAX_LUT_ELEM);
     std::iota(degrees.begin(), degrees.end(), 0U);
 
-    std::vector<fp64> radian;
-    radian.reserve(degrees.size());
+    std::vector<fp64> radians;
+    radians.reserve(degrees.size());
 
     for (auto const degree: degrees)
     {
         fp64 const tmp_value = degree_to_rad::to_rad(degree);
 
-        radian.push_back(tmp_value);
+        radians.push_back(tmp_value);
     }
 
     auto cot = [](fp64 x) -> fp64
@@ -130,7 +130,7 @@ void check_fp64::check_cot()
 
     for (size_t i = 0U; i < degrees.size(); ++i)
     {
-        fp64 const a = cot(radian[i]);
+        fp64 const a = cot(radians[i]);
 
         fp64 const b = cot_lut_fp64::lut[degrees[i]]();
 
