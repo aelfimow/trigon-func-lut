@@ -53,19 +53,19 @@ void check_fp80::check_cos()
     std::vector<unsigned int> degrees(cos_lut_fp80::MAX_LUT_ELEM);
     std::iota(degrees.begin(), degrees.end(), 0U);
 
-    std::vector<fp80> radian_fp80;
-    radian_fp80.reserve(degrees.size());
+    std::vector<fp80> radians;
+    radians.reserve(degrees.size());
 
     for (auto const degree: degrees)
     {
         fp80 const value_fp80 = degree_to_rad::to_rad_l(degree);
 
-        radian_fp80.push_back(value_fp80);
+        radians.push_back(value_fp80);
     }
 
     for (size_t i = 0U; i < degrees.size(); ++i)
     {
-        fp80 const a = cosl(radian_fp80[i]);
+        fp80 const a = cosl(radians[i]);
 
         fp80 const b = cos_lut_fp80::lut[degrees[i]]();
 
