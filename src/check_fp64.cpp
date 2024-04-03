@@ -83,19 +83,19 @@ void check_fp64::check_tan()
     std::vector<unsigned int> degrees(tan_lut_fp64::MAX_LUT_ELEM);
     std::iota(degrees.begin(), degrees.end(), 0U);
 
-    std::vector<fp64> radian;
-    radian.reserve(degrees.size());
+    std::vector<fp64> radians;
+    radians.reserve(degrees.size());
 
     for (auto const degree: degrees)
     {
         fp64 const tmp_value = degree_to_rad::to_rad(degree);
 
-        radian.push_back(tmp_value);
+        radians.push_back(tmp_value);
     }
 
     for (size_t i = 0U; i < degrees.size(); ++i)
     {
-        fp64 const a = tan(radian[i]);
+        fp64 const a = tan(radians[i]);
 
         fp64 const b = tan_lut_fp64::lut[degrees[i]]();
 
