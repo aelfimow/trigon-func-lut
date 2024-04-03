@@ -23,19 +23,19 @@ void check_fp64::check_sin()
     std::vector<unsigned int> degrees(sin_lut_fp64::MAX_LUT_ELEM);
     std::iota(degrees.begin(), degrees.end(), 0U);
 
-    std::vector<fp64> radian_fp64;
-    radian_fp64.reserve(degrees.size());
+    std::vector<fp64> radians;
+    radians.reserve(degrees.size());
 
     for (auto const degree: degrees)
     {
         fp64 const value_fp64 = degree_to_rad::to_rad(degree);
 
-        radian_fp64.push_back(value_fp64);
+        radians.push_back(value_fp64);
     }
 
     for (size_t i = 0U; i < degrees.size(); ++i)
     {
-        fp64 const a = sin(radian_fp64[i]);
+        fp64 const a = sin(radians[i]);
 
         fp64 const b = sin_lut_fp64::lut[degrees[i]]();
 
